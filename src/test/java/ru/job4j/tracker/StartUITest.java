@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import static org.hamcrest.core.IsNull.nullValue;
 
 public class StartUITest {
-
+/*
     @Test
     public void whenAddItem() {
         Input in = new StubInput(
@@ -68,5 +68,22 @@ public class StartUITest {
         };
         new StartUI().init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("Item name"));
+    }
+*/
+    @Test
+    public void whenExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() +
+                        "0. === Exit from Menu ===" + System.lineSeparator()
+        ));
     }
 }
