@@ -18,8 +18,6 @@ public class ShowAllAction implements UserAction {
         for (int i = 0; i < listOfCurrentItems.length; i++) {
             out.println(listOfCurrentItems[i]);
         }
-        out.println("======================");
-        out.println("");
         return true;
     }
 }

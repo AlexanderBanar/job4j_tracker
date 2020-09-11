@@ -21,8 +21,6 @@ public class FindByIdAction implements UserAction {
         } else {
             out.println("Error! Id you have entered is not found. Please try again with other Id");
         }
-        out.println("======================");
-        out.println("");
         return true;
     }
 }

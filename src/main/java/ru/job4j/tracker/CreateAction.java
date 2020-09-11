@@ -18,8 +18,6 @@ public class CreateAction implements UserAction {
         Item item = new Item();
         item.setName(name);
         tracker.add(item);
-        out.println("======================");
-        out.println("");
         return true;
     }
 }

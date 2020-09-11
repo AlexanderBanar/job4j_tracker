@@ -24,8 +24,6 @@ public class FindByNameAction implements UserAction {
             out.println("Error! Items with the name you have entered is not found.");
             out.println("Please try again with other Id");
         }
-        out.println("======================");
-        out.println("");
         return true;
     }
 }
