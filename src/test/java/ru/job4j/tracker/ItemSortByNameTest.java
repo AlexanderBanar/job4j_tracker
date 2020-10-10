@@ -34,7 +34,7 @@ public class ItemSortByNameTest {
         third.setId(3);
         List<Item> items = Arrays.asList(first, second, third);
         List<Item> expected = Arrays.asList(third, second, first);
-        Collections.sort(items, Collections.reverseOrder());
+        Collections.sort(items, new ItemReverseSort());
         assertThat(items, is(expected));
     }
 
