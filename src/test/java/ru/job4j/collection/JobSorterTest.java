@@ -82,14 +82,14 @@ public class JobSorterTest {
     public void whenComparatorByNameUpAndPriorityUp() {
         Comparator<Job> cmpNameUpPriorityUp = new JobDescByNameUpSort().thenComparing(new JobDescByPriorityUpSort());
         List<Job> jobs = Arrays.asList(
-                new Job("Create instruction", 3),
                 new Job("Create instruction", 8),
+                new Job("Create instruction", 3),
                 new Job("Fix bug", 1)
         );
-        Collections.sort(jobs, new JobDescByPriority());
+        Collections.sort(jobs, cmpNameUpPriorityUp);
         List<Job> expect = Arrays.asList(
-                new Job("Create instruction", 8),
                 new Job("Create instruction", 3),
+                new Job("Create instruction", 8),
                 new Job("Fix bug", 1)
         );
         assertThat(jobs, is(expect));
