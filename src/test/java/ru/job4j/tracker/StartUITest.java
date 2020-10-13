@@ -20,12 +20,12 @@ public class StartUITest {
         actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. === Show all items ===" + System.lineSeparator() +
-                        "1. === Exit from Menu ===" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. === Show all items ===" + System.lineSeparator() +
-                        "1. === Exit from Menu ===" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. === Show all items ===" + System.lineSeparator()
+                        + "1. === Exit from Menu ===" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. === Show all items ===" + System.lineSeparator()
+                        + "1. === Exit from Menu ===" + System.lineSeparator()
         ));
     }
 
@@ -44,13 +44,13 @@ public class StartUITest {
         actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. === Find items by name ===" + System.lineSeparator() +
-                        "1. === Exit from Menu ===" + System.lineSeparator() +
-                        "Item{id=1, name='New item'}" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. === Find items by name ===" + System.lineSeparator() +
-                        "1. === Exit from Menu ===" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. === Find items by name ===" + System.lineSeparator()
+                        + "1. === Exit from Menu ===" + System.lineSeparator()
+                        + "Item{id=1, name='New item'}" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. === Find items by name ===" + System.lineSeparator()
+                        + "1. === Exit from Menu ===" + System.lineSeparator()
         ));
     }
 
@@ -69,13 +69,13 @@ public class StartUITest {
         actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. === Find item by Id ===" + System.lineSeparator() +
-                        "1. === Exit from Menu ===" + System.lineSeparator() +
-                        "New item" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. === Find item by Id ===" + System.lineSeparator() +
-                        "1. === Exit from Menu ===" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. === Find item by Id ===" + System.lineSeparator()
+                        + "1. === Exit from Menu ===" + System.lineSeparator()
+                        + "New item" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. === Find item by Id ===" + System.lineSeparator()
+                        + "1. === Exit from Menu ===" + System.lineSeparator()
         ));
     }
 
@@ -139,8 +139,8 @@ public class StartUITest {
         actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. === Exit from Menu ===" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. === Exit from Menu ===" + System.lineSeparator()
         ));
     }
 

@@ -49,7 +49,8 @@ public class BankService {
         boolean rsl = false;
         Account accountSrcTransfer = findByRequisite(srcPassport, srcRequisite);
         Account accountDestTransfer = findByRequisite(destPassport, destRequisite);
-        if (accountSrcTransfer != null && accountSrcTransfer.getBalance() >= amount && accountDestTransfer != null) {
+        if (accountSrcTransfer != null
+                && accountSrcTransfer.getBalance() >= amount && accountDestTransfer != null) {
             accountSrcTransfer.setBalance(accountSrcTransfer.getBalance() - amount);
             accountDestTransfer.setBalance(accountDestTransfer.getBalance() + amount);
             rsl = true;
@@ -57,18 +58,3 @@ public class BankService {
         return rsl;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

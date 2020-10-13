@@ -70,7 +70,8 @@ public class JobSorterTest {
 
     @Test
     public void whenComparatorByNameAndPriority() {
-        Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
+        Comparator<Job> cmpNamePriority =
+                new JobDescByName().thenComparing(new JobDescByPriority());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
                 new Job("Fix bug", 1)
@@ -80,7 +81,8 @@ public class JobSorterTest {
 
     @Test
     public void whenComparatorByNameUpAndPriorityUp() {
-        Comparator<Job> cmpNameUpPriorityUp = new JobDescByNameUpSort().thenComparing(new JobDescByPriorityUpSort());
+        Comparator<Job> cmpNameUpPriorityUp =
+                new JobDescByNameUpSort().thenComparing(new JobDescByPriorityUpSort());
         List<Job> jobs = Arrays.asList(
                 new Job("Create instruction", 8),
                 new Job("Create instruction", 3),
