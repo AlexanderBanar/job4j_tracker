@@ -58,11 +58,11 @@ public class JobSorterTest {
     public void whenComparatorByPriority() {
         List<Job> jobs = Arrays.asList(
                 new Job("Create instruction", 3),
-                new Job("Create report", 99)
+                new Job("Create report", 89)
         );
         Collections.sort(jobs, new JobDescByPriority());
         List<Job> expect = Arrays.asList(
-                new Job("Create report", 99),
+                new Job("Create report", 89),
                 new Job("Create instruction", 3)
         );
         assertThat(jobs, is(expect));
