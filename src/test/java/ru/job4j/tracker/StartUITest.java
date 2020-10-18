@@ -163,5 +163,6 @@ public class StartUITest {
                         + "0. === Exit from Menu ===%n"
                 )
         ));
+
     }
 }
