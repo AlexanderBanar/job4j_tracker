@@ -25,5 +25,9 @@ public class AttachmentSort {
                 return o1.getName().compareTo(o2.getName());
             }
         };
+        Comparator<Attachment> descCmp = (left, right) -> {
+            System.out.println("compare - " + right.getName() + " : " + left.getName());
+            return right.getName().compareTo(left.getName());
+        };
     }
 }
