@@ -11,10 +11,11 @@ public class PhoneDictionary {
     }
 
     public ArrayList<Person> find(String key) {
-        Predicate<Person> combine = (x) -> x.getName().contains(key)
-                || x.getSurname().contains(key)
-                || x.getAddress().contains(key)
-                || x.getPhone().contains(key);
+        Predicate<Person> namePred = (x) -> x.getName().contains(key);
+        Predicate<Person> surnamePred = (x) -> x.getSurname().contains(key);
+        Predicate<Person> addressPred = (x) -> x.getAddress().contains(key);
+        Predicate<Person> phonePred = (x) -> x.getPhone().contains(key);
+        Predicate<Person> combine = namePred.or(surnamePred).or(addressPred).or(phonePred);
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
             if (combine.test(person)) {
