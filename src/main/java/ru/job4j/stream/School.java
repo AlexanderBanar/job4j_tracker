@@ -15,9 +15,10 @@ public class School {
 
     public Map<String, Student> restructure(List<Student> students) {
         return students.stream()
-                .distinct().collect(Collectors.toMap(
-                        x -> x.getSurname(),
-                        x -> x
-                ));
+                .collect(Collectors.toMap(
+                        Student::getSurname,
+                        x -> x,
+                        (x, y) -> x)
+                );
     }
 }
