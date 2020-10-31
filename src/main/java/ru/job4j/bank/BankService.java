@@ -21,21 +21,20 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        List<User> temp = users.keySet().stream()
+        return users.keySet().stream()
                 .filter(x -> x.getPassport().equals(passport))
-                .collect(Collectors.toList());
-        return (temp.isEmpty()) ? null : temp.get(0);
+                .findFirst().orElse(null);
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        List<Account> rsl = null;
+        Account rsl = null;
         User userByReq = findByPassport(passport);
         if (userByReq != null) {
             rsl = users.get(userByReq).stream()
                     .filter(x -> x.getRequisite().equals(requisite))
-                    .collect(Collectors.toList());
+                    .findFirst().orElse(null);
         }
-        return (rsl != null) ? rsl.get(0) : null;
+        return rsl;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
