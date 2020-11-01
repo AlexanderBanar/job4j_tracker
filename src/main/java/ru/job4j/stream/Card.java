@@ -1,5 +1,7 @@
 package ru.job4j.stream;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,7 +17,13 @@ public class Card {
     public static void main(String[] args) {
         Stream<Suit> stream = Stream.of(Suit.values());
         Stream<Value> stream2 = Stream.of(Value.values());
-        Stream result = Stream.concat(stream, stream2);
-        System.out.println(result.collect(Collectors.toList()).toString());
+        List<Stream> common = Arrays.asList(stream, stream2);
+
+
+
+
+
+
+
     }
 }
