@@ -1,6 +1,7 @@
 package ru.job4j.stream;
 
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,6 +25,7 @@ public class Analyze {
         return stream.flatMap(x -> x.getSubjects().stream())
                 .collect(Collectors.groupingBy(
                         Subject::getName,
+                        LinkedHashMap::new,
                         Collectors.averagingDouble(Subject::getScore)))
                 .entrySet().stream()
                 .map(x -> new Tuple(x.getKey(), x.getValue()))
@@ -35,12 +37,8 @@ public class Analyze {
                 x.getSubjects().stream()
                         .mapToInt(Subject::getScore)
                         .sum()))
-                .max(new Comparator<Tuple>() {
-                    @Override
-                    public int compare(Tuple o1, Tuple o2) {
-                        return Double.compare(o1.getScore(), o2.getScore());
-                    }
-                }).orElse(new Tuple("no name", 0D));
+                .max(Comparator.comparingDouble(Tuple::getScore))
+                .orElse(new Tuple("no name", 0D));
     }
 
     public static Tuple bestSubject(Stream<Pupil> stream) {
@@ -50,11 +48,7 @@ public class Analyze {
                         Collectors.summingDouble(Subject::getScore)))
                 .entrySet().stream()
                 .map(x -> new Tuple(x.getKey(), x.getValue()))
-                .max(new Comparator<Tuple>() {
-                    @Override
-                    public int compare(Tuple o1, Tuple o2) {
-                        return Double.compare(o1.getScore(), o2.getScore());
-                    }
-                }).orElse(new Tuple("no name", 0D));
+                .max(Comparator.comparingDouble(Tuple::getScore))
+                .orElse(new Tuple("no name", 0D));
     }
 }
