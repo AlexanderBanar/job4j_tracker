@@ -17,9 +17,6 @@ public class EasyStream {
     }
 
     public static EasyStream of(List<Integer> source) {
-        if (source.size() > 10) {
-            throw new UnsupportedOperationException();
-        }
         return new EasyStream(source);
     }
 
