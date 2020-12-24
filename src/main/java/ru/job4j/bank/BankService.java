@@ -22,7 +22,8 @@ public class BankService {
 
     /**
      * метод добавляет новый счет пользователю
-     * @see #findByPassport(String) вначале пользователя нужно найти по паспорту, для этого используется этот метод
+     * @see #findByPassport(String) вначале пользователя нужно найти по паспорту,
+     * для этого используется этот метод
      * @param passport паспорт пользователя
      * @param account добавляемый новый счет пользователя
      */
@@ -71,7 +72,8 @@ public class BankService {
      * @param destPassport паспорт пользователя, которому переводят
      * @param destRequisite реквизиты счета пользователя, которому переводят
      * @param amount сумма перевода
-     * @return если счёт не найден или не хватает денег на счёте srcAccount, то метод возвращает false
+     * @return если счёт не найден или не хватает денег на счёте srcAccount,
+     * то метод возвращает false
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
@@ -79,7 +81,8 @@ public class BankService {
         Optional<Account> accountSrcTransfer = findByRequisite(srcPassport, srcRequisite);
         Optional<Account> accountDestTransfer = findByRequisite(destPassport, destRequisite);
         if (accountSrcTransfer.isPresent()
-                && accountSrcTransfer.get().getBalance() >= amount && accountDestTransfer.isPresent()) {
+                && accountSrcTransfer.get().getBalance()
+                >= amount && accountDestTransfer.isPresent()) {
             accountSrcTransfer.get().setBalance(accountSrcTransfer.get().getBalance() - amount);
             accountDestTransfer.get().setBalance(accountDestTransfer.get().getBalance() + amount);
             rsl = true;
